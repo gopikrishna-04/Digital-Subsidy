@@ -1,8 +1,19 @@
 # ---- Build Stage ----
-FROM gradle:8.12-jdk21 AS builder
+FROM eclipse-temurin:21-jdk-alpine AS builder
 WORKDIR /app
-COPY . .
-RUN gradle bootJar --no-daemon
+
+# Copy gradle wrapper and build files first (for better caching)
+COPY gradle gradle
+COPY gradlew .
+COPY build.gradle .
+COPY settings.gradle .
+
+# Copy source code
+COPY src src
+
+# Make gradlew executable and build
+RUN chmod +x gradlew
+RUN ./gradlew bootJar --no-daemon
 
 # ---- Run Stage ----
 FROM eclipse-temurin:21-jre-alpine
