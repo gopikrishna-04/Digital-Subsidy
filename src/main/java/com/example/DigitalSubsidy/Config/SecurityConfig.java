@@ -32,46 +32,15 @@ public class SecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
 
-                .cors(cors -> cors.configurationSource(request -> {
-
-                            CorsConfiguration configuration =
-                                    new CorsConfiguration();
-
-                            configuration.setAllowedOrigins(
-                                    List.of("http://localhost:63342")
-                            );
-
-                            configuration.setAllowedMethods(
-                                    List.of(
-                                            "GET",
-                                            "POST",
-                                            "PUT",
-                                            "DELETE",
-                                            "OPTIONS"
-                                    )
-                            );
-
-                            configuration.setAllowedHeaders(
-                                    List.of("*")
-                            );
-
-                            configuration.setAllowCredentials(true);
-
-                            return configuration;
-                        })
-
-                )
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
 
                 .authorizeHttpRequests(auth -> auth
 
                         .requestMatchers(
                                 "/auth/login",
-                                "/staff/login"
-                        ).permitAll()
-
-                        .requestMatchers(
-                                "/applications/**",
-                                "/documents/**"
+                                "/auth/register",
+                                "/staff/login",
+                                "/**"
                         ).permitAll()
 
                         .anyRequest().permitAll()
@@ -79,11 +48,13 @@ public class SecurityConfig {
 
         return http.build();
     }
+
     @Bean
     public AuthenticationManager authenticationManager(
             AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
     }
+
     @Bean
     public UserDetailsService userDetailsService(AuthUserRepo repo) {
 
@@ -98,14 +69,13 @@ public class SecurityConfig {
                     .build();
         };
     }
+
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
 
         CorsConfiguration configuration = new CorsConfiguration();
 
-        configuration.setAllowedOrigins(
-                List.of("http://localhost:63342")
-        );
+        configuration.addAllowedOriginPattern("*");
 
         configuration.setAllowedMethods(
                 List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")
