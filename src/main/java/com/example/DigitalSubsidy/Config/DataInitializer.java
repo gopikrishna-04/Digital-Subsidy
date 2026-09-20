@@ -2,8 +2,10 @@ package com.example.DigitalSubsidy.Config;
 
 import com.example.DigitalSubsidy.entity.GrantSlab;
 import com.example.DigitalSubsidy.entity.Scheme;
+import com.example.DigitalSubsidy.entity.Staff;
 import com.example.DigitalSubsidy.repository.GrantSlabRepo;
 import com.example.DigitalSubsidy.repository.SchemeRepo;
+import com.example.DigitalSubsidy.repository.StaffRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -19,8 +21,35 @@ public class DataInitializer implements CommandLineRunner {
     @Autowired
     private GrantSlabRepo grantSlabRepo;
 
+    @Autowired
+    private StaffRepo staffRepo;
+
     @Override
     public void run(String... args) throws Exception {
+        seedStaff();
+        seedSchemes();
+    }
+
+    private void seedStaff() {
+        if (staffRepo.count() > 0) {
+            return;
+        }
+
+        createStaff("System Administrator", "admin@subsidy.gov.in", "Admin@123", "ADMIN");
+        createStaff("Ramesh Kumar (Field Officer)", "field@subsidy.gov.in", "Field@123", "FIELD_OFFICER");
+        createStaff("Priya Sharma (District Officer)", "district@subsidy.gov.in", "District@123", "DISTRICT_OFFICER");
+    }
+
+    private void createStaff(String name, String email, String password, String role) {
+        Staff staff = new Staff();
+        staff.setName(name);
+        staff.setEmail(email);
+        staff.setPassword(password);
+        staff.setRole(role);
+        staffRepo.save(staff);
+    }
+
+    private void seedSchemes() {
         if (schemeRepo.count() > 0) {
             return;
         }
