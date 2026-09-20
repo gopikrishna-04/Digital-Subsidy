@@ -63,7 +63,7 @@ registerForm.addEventListener("submit", async function (event) {
     try {
 
         const response = await fetch(
-            "http://localhost:8080/auth/register",
+            "/auth/register",
             {
                 method: "POST",
 

@@ -38,7 +38,7 @@ async function loadApplications() {
         // ================= GET USER PROFILES =================
 
         const userResponse = await fetch(
-            "http://localhost:8080/users",
+            "/users",
             {
                 credentials: "include"
             }
@@ -101,7 +101,7 @@ async function loadApplications() {
         // ================= GET ALL APPLICATIONS =================
 
         const response = await fetch(
-            "http://localhost:8080/applications",
+            "/applications",
             {
                 credentials: "include"
             }
@@ -319,9 +319,9 @@ function generateStepperHTML(application, bankDetails, installmentPlans, milesto
 
             try {
                 const [bRes, iRes, mRes] = await Promise.all([
-                    fetch(`http://localhost:8080/bank-details/application/${application.id}`, { credentials: "include" }),
-                    fetch(`http://localhost:8080/installment-plans/application/${application.id}`, { credentials: "include" }),
-                    fetch(`http://localhost:8080/compliance-milestones/application/${application.id}`, { credentials: "include" })
+                    fetch(`/bank-details/application/${application.id}`, { credentials: "include" }),
+                    fetch(`/installment-plans/application/${application.id}`, { credentials: "include" }),
+                    fetch(`/compliance-milestones/application/${application.id}`, { credentials: "include" })
                 ]);
                 if (bRes.ok) {
                     const bTxt = await bRes.text();
@@ -413,7 +413,7 @@ function generateStepperHTML(application, bankDetails, installmentPlans, milesto
 
                             const response =
                                 await fetch(
-                                    `http://localhost:8080/applications/${applicationId}/withdraw`,
+                                    `/applications/${applicationId}/withdraw`,
                                     {
                                         method: "PUT",
                                         credentials: "include"

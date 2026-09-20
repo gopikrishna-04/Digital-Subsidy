@@ -52,7 +52,7 @@ async function loadApplications() {
     try {
 
         const response = await fetch(
-            "http://localhost:8080/applications",
+            "/applications",
             {
                 credentials: "include"
             }

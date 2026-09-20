@@ -3,7 +3,7 @@ const historyBody =
 
 
 const API_URL =
-    "http://localhost:8080/applications";
+    "/applications";
 
 
 const applicationFormCard =

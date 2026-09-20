@@ -30,7 +30,7 @@ async function loadEligibleSchemes() {
 
         // Get all users
         const userResponse = await fetch(
-            "http://localhost:8080/users",
+            "/users",
             {
                 credentials: "include"
             }
@@ -76,7 +76,7 @@ async function loadEligibleSchemes() {
 
         // Get eligible schemes
         const response = await fetch(
-            "http://localhost:8080/schemes/eligible/" +
+            "/schemes/eligible/" +
             currentUser.id,
             {
                 credentials: "include"
@@ -94,7 +94,7 @@ async function loadEligibleSchemes() {
 
         // Get all applications
         const applicationResponse = await fetch(
-            "http://localhost:8080/applications",
+            "/applications",
             {
                 credentials: "include"
             }
@@ -110,7 +110,7 @@ async function loadEligibleSchemes() {
 
         // Get all disbursements
         const disbursementResponse = await fetch(
-            "http://localhost:8080/disbursements",
+            "/disbursements",
             {
                 credentials: "include"
             }
@@ -314,7 +314,7 @@ async function applyForScheme(schemeId) {
         // Get users
         const userResponse =
             await fetch(
-                "http://localhost:8080/users",
+                "/users",
                 {
                     credentials: "include"
                 }
@@ -354,7 +354,7 @@ async function applyForScheme(schemeId) {
         // Get all applications
         const applicationResponse =
             await fetch(
-                "http://localhost:8080/applications",
+                "/applications",
                 {
                     credentials: "include"
                 }
@@ -373,7 +373,7 @@ async function applyForScheme(schemeId) {
             await applicationResponse.json();
         const disbursementResponse =
             await fetch(
-                "http://localhost:8080/disbursements",
+                "/disbursements",
                 {
                     credentials: "include"
                 }

@@ -21,7 +21,7 @@ async function loadProfile() {
     try {
 
         const response = await fetch(
-            "http://localhost:8080/users",
+            "/users",
             {
                 method: "GET",
                 credentials: "include"
@@ -178,7 +178,7 @@ profileForm.addEventListener(
             if (currentUserId) {
 
                 response = await fetch(
-                    "http://localhost:8080/users/" + currentUserId,
+                    "/users/" + currentUserId,
                     {
                         method: "PUT",
 
@@ -198,7 +198,7 @@ profileForm.addEventListener(
             else {
 
                 response = await fetch(
-                    "http://localhost:8080/users",
+                    "/users",
                     {
                         method: "POST",
 

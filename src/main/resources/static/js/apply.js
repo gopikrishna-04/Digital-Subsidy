@@ -64,7 +64,7 @@ async function loadApplication() {
 
         const userResponse =
             await fetch(
-                "http://localhost:8080/users",
+                "/users",
                 {
                     credentials: "include"
                 }
@@ -111,7 +111,7 @@ async function loadApplication() {
 
         const schemeResponse =
             await fetch(
-                `http://localhost:8080/schemes/${schemeId}`,
+                `/schemes/${schemeId}`,
                 {
                     credentials: "include"
                 }
@@ -140,7 +140,7 @@ async function loadApplication() {
 
         const slabResponse =
             await fetch(
-                `http://localhost:8080/grant-slabs/scheme/${schemeId}`,
+                `/grant-slabs/scheme/${schemeId}`,
                 {
                     credentials: "include"
                 }
@@ -711,7 +711,7 @@ applicationForm.addEventListener(
 
             const response =
                 await fetch(
-                    "http://localhost:8080/applications",
+                    "/applications",
                     {
                         method: "POST",
 
@@ -778,7 +778,7 @@ applicationForm.addEventListener(
                 );
 
                 const uploadRes = await fetch(
-                    "http://localhost:8080/documents/upload",
+                    "/documents/upload",
                     {
                         method: "POST",
                         credentials: "include",

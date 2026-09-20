@@ -26,7 +26,7 @@ function statusClass(status) {
 async function getCurrentUser() {
 
     const response = await fetch(
-        "http://localhost:8080/users",
+        "/users",
         {
             credentials: "include"
         }
@@ -56,7 +56,7 @@ async function getCurrentUser() {
 async function getApplication() {
 
     const response = await fetch(
-        "http://localhost:8080/applications",
+        "/applications",
         {
             credentials: "include"
         }
@@ -87,7 +87,7 @@ async function getDocuments() {
     try {
 
         const response = await fetch(
-            `http://localhost:8080/documents/application/${applicationId}`,
+            `/documents/application/${applicationId}`,
             {
                 credentials: "include"
             }
@@ -120,7 +120,7 @@ async function getGrant(currentUser, application) {
         }
 
         const response = await fetch(
-            `http://localhost:8080/grant-slabs/scheme/${application.scheme.id}`,
+            `/grant-slabs/scheme/${application.scheme.id}`,
             {
                 credentials: "include"
             }
@@ -164,7 +164,7 @@ async function getBankDetails() {
     try {
 
         const response = await fetch(
-            `http://localhost:8080/bank-details/application/${applicationId}`,
+            `/bank-details/application/${applicationId}`,
             {
                 credentials: "include"
             }
@@ -199,7 +199,7 @@ async function getInstallments() {
     try {
 
         const response = await fetch(
-            `http://localhost:8080/installment-plans/application/${applicationId}`,
+            `/installment-plans/application/${applicationId}`,
             {
                 credentials: "include"
             }
@@ -228,7 +228,7 @@ async function getMilestones() {
     try {
 
         const response = await fetch(
-            `http://localhost:8080/compliance-milestones/application/${applicationId}`,
+            `/compliance-milestones/application/${applicationId}`,
             {
                 credentials: "include"
             }
@@ -280,7 +280,7 @@ function renderDocuments(documents) {
             </div>
 
             <a
-                href="http://localhost:8080/documents/${document.id}/file"
+                href="/documents/${document.id}/file"
                 target="_blank"
                 class="view-pdf-btn"
             >
@@ -880,7 +880,7 @@ async function submitUtilizationProof(milestoneId) {
 
         const response =
             await fetch(
-                `http://localhost:8080/documents/utilization-proof/${milestoneId}`,
+                `/documents/utilization-proof/${milestoneId}`,
                 {
                     method: "POST",
                     credentials: "include",

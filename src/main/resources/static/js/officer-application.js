@@ -80,7 +80,7 @@ async function loadApplication() {
 
         const response =
             await fetch(
-                `http://localhost:8080/applications/${applicationId}`,
+                `/applications/${applicationId}`,
                 {
                     credentials: "include"
                 }
@@ -248,7 +248,7 @@ async function loadApplicationDetails() {
 
         const response =
             await fetch(
-                `http://localhost:8080/applications/${applicationId}`,
+                `/applications/${applicationId}`,
                 {
                     credentials: "include"
                 }
@@ -476,7 +476,7 @@ async function loadGrantDetails(schemeId,application) {
 
         const response =
             await fetch(
-                `http://localhost:8080/grant-slabs/scheme/${schemeId}`,
+                `/grant-slabs/scheme/${schemeId}`,
                 {
                     credentials: "include"
                 }
@@ -621,7 +621,7 @@ async function loadDocuments() {
 
         const response =
             await fetch(
-                `http://localhost:8080/documents/application/${applicationId}`,
+                `/documents/application/${applicationId}`,
                 {
                     credentials: "include"
                 }
@@ -797,7 +797,7 @@ if (approveApplicationBtn) {
                 }
 
                 const response = await fetch(
-                    `http://localhost:8080/api/verifications/${verificationLevel}/${applicationId}?decision=APPROVED`,
+                    `/api/verifications/${verificationLevel}/${applicationId}?decision=APPROVED`,
                     {
                         method: "PUT",
                         credentials: "include"
@@ -973,7 +973,7 @@ if (confirmRejectBtn) {
 
                 const response =
                     await fetch(
-                        `http://localhost:8080/api/verifications/${verificationLevel}/${applicationId}?decision=REJECTED&remarks=${encodeURIComponent(reason)}`,
+                        `/api/verifications/${verificationLevel}/${applicationId}?decision=REJECTED&remarks=${encodeURIComponent(reason)}`,
                         {
                             method: "PUT",
                             credentials: "include"
@@ -1033,7 +1033,7 @@ if (confirmRejectBtn) {
 function viewPDF(documentId) {
 
     window.open(
-        `http://localhost:8080/documents/${documentId}/file`,
+        `/documents/${documentId}/file`,
         "_blank"
     );
 

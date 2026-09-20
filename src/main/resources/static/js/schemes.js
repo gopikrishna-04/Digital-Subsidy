@@ -24,7 +24,7 @@ async function loadSchemes() {
 
         const userResponse =
             await fetch(
-                "http://localhost:8080/users",
+                "/users",
                 {
                     credentials: "include"
                 }
@@ -72,7 +72,7 @@ async function loadSchemes() {
 
         const response =
             await fetch(
-                "http://localhost:8080/schemes",
+                "/schemes",
                 {
                     method: "GET",
                     credentials: "include"
@@ -97,7 +97,7 @@ async function loadSchemes() {
 
         const applicationResponse =
             await fetch(
-                "http://localhost:8080/applications",
+                "/applications",
                 {
                     credentials: "include"
                 }
@@ -153,7 +153,7 @@ async function loadSchemes() {
 
             const slabResponse =
                 await fetch(
-                    `http://localhost:8080/grant-slabs/scheme/${scheme.id}`,
+                    `/grant-slabs/scheme/${scheme.id}`,
                     {
                         method: "GET",
                         credentials: "include"

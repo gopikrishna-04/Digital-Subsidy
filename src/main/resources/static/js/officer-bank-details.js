@@ -47,7 +47,7 @@ function checkNameMatch(applicantName, holderName) {
 // ================= LOAD BANK DETAILS =================
 async function loadBankDetails() {
     try {
-        const response = await fetch("http://localhost:8080/bank-details", {
+        const response = await fetch("/bank-details", {
             credentials: "include"
         });
 
@@ -235,7 +235,7 @@ async function verifyBank(id) {
 
         const response =
             await fetch(
-                "http://localhost:8080/bank-details/"
+                "/bank-details/"
                 + id
                 + "/verify",
                 {
@@ -288,7 +288,7 @@ async function rejectBank(id, reason) {
 
         const response =
             await fetch(
-                "http://localhost:8080/bank-details/"
+                "/bank-details/"
                 + id
                 + "/reject?reason="
                 + encodeURIComponent(reason),

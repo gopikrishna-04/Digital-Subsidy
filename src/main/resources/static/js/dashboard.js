@@ -59,7 +59,7 @@ if (!userEmail) {
         try {
 
             const response = await fetch(
-                "http://localhost:8080/users",
+                "/users",
                 {
                     method: "GET",
                     credentials: "include"

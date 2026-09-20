@@ -1,5 +1,5 @@
 const API_URL =
-    "http://localhost:8080/schemes";
+    "/schemes";
 
 const tableBody =
     document.getElementById("schemesTableBody");
@@ -667,7 +667,7 @@ async function saveSlabs(schemeId, isEditing) {
 
         const response =
             await fetch(
-                "http://localhost:8080/grant-slabs",
+                "/grant-slabs",
                 {
                     method: "POST",
 
@@ -696,7 +696,7 @@ async function deleteSlabsForScheme(schemeId) {
 
     const response =
         await fetch(
-            `http://localhost:8080/grant-slabs/scheme/${schemeId}`
+            `/grant-slabs/scheme/${schemeId}`
         );
 
     if (!response.ok) {
@@ -712,7 +712,7 @@ async function deleteSlabsForScheme(schemeId) {
     for (const slab of slabs) {
 
         await fetch(
-            `http://localhost:8080/grant-slabs/${slab.id}`,
+            `/grant-slabs/${slab.id}`,
             {
                 method: "DELETE"
             }
@@ -951,7 +951,7 @@ async function loadSlabs(schemeId) {
 
         const response =
             await fetch(
-                `http://localhost:8080/grant-slabs/scheme/${schemeId}`
+                `/grant-slabs/scheme/${schemeId}`
             );
 
         if (!response.ok) {

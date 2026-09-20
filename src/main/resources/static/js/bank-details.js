@@ -170,7 +170,7 @@ bankDetailsForm.addEventListener(
 
             const response =
                 await fetch(
-                    "http://localhost:8080/bank-details",
+                    "/bank-details",
                     {
                         method: "POST",
 

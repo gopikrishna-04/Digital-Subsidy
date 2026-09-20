@@ -1,5 +1,5 @@
-const API_BASE_URL = 'http://localhost:8080/regional-allocations';
-const SCHEME_API_URL = 'http://localhost:8080/schemes';
+const API_BASE_URL = '/regional-allocations';
+const SCHEME_API_URL = '/schemes';
 
 
 // ================= INITIAL LOAD =================

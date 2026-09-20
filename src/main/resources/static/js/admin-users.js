@@ -8,7 +8,7 @@ let editingUserId = null;
 
 
 const API_URL =
-    "http://localhost:8080/users";
+    "/users";
 
 const usersTableBody =
     document.getElementById("usersTableBody");

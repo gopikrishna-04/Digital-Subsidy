@@ -31,7 +31,7 @@ async function loadPayments() {
 
         const response =
             await fetch(
-                "http://localhost:8080/applications",
+                "/applications",
                 {
                     credentials: "include"
                 }
@@ -75,7 +75,7 @@ async function loadPayments() {
 
                 const bankResponse =
                     await fetch(
-                        "http://localhost:8080/bank-details/application/"
+                        "/bank-details/application/"
                         + application.id,
                         {
                             credentials: "include"
@@ -121,7 +121,7 @@ async function loadPayments() {
             try {
                 const complianceResponse =
                     await fetch(
-                        "http://localhost:8080/compliance-milestones/application/"
+                        "/compliance-milestones/application/"
                         + application.id,
                         {
                             credentials: "include"
@@ -146,7 +146,7 @@ async function loadPayments() {
 
                 const documentResponse =
                     await fetch(
-                        "http://localhost:8080/documents/application/"
+                        "/documents/application/"
                         + application.id,
                         {
                             credentials: "include"
@@ -176,7 +176,7 @@ async function loadPayments() {
 
                 const installmentResponse =
                     await fetch(
-                        "http://localhost:8080/installment-plans/application/"
+                        "/installment-plans/application/"
                         + application.id,
                         {
                             credentials: "include"
@@ -213,7 +213,7 @@ async function loadPayments() {
 
                 const disbursementResponse =
                     await fetch(
-                        "http://localhost:8080/disbursements",
+                        "/disbursements",
                         {
                             credentials: "include"
                         }
@@ -475,7 +475,7 @@ async function loadPayments() {
 
                             const documentResponse =
                                 await fetch(
-                                    "http://localhost:8080/documents/"
+                                    "/documents/"
                                     + documentId
                                     + "/verify",
                                     {
@@ -505,7 +505,7 @@ async function loadPayments() {
 
                             const milestoneResponse =
                                 await fetch(
-                                    "http://localhost:8080/compliance-milestones/"
+                                    "/compliance-milestones/"
                                     + milestoneId
                                     + "/complete?utilizationProof="
                                     + encodeURIComponent(proofPath),
@@ -669,7 +669,7 @@ async function loadPayments() {
 
                             const paymentResponse =
                                 await fetch(
-                                    "http://localhost:8080/disbursements",
+                                    "/disbursements",
                                     {
                                         method: "POST",
 
@@ -955,7 +955,7 @@ function createInstallmentHTML(
                 previousProof
                     ? `
                                 <a
-                                    href="http://localhost:8080/documents/${previousProof.id}/file"
+                                    href="/documents/${previousProof.id}/file"
                                     target="_blank"
                                     class="view-utilization-btn"
                                 >
@@ -1006,7 +1006,7 @@ function createInstallmentHTML(
                     </strong>
 
                     <a
-                        href="http://localhost:8080/documents/${previousProof.id}/file"
+                        href="/documents/${previousProof.id}/file"
                         target="_blank"
                         class="view-utilization-btn"
                     >
@@ -1076,7 +1076,7 @@ function createInstallmentHTML(
                     </span>
 
                     <a
-                        href="http://localhost:8080/documents/${previousProof.id}/file"
+                        href="/documents/${previousProof.id}/file"
                         target="_blank"
                         class="view-utilization-btn"
                     >
@@ -1275,7 +1275,7 @@ document.addEventListener("click", async function(event) {
 
             const response =
                 await fetch(
-                    `http://localhost:8080/documents/${documentId}/reject?reason=${encodeURIComponent(reason)}`,
+                    `/documents/${documentId}/reject?reason=${encodeURIComponent(reason)}`,
                     {
                         method: "PUT",
                         credentials: "include"
