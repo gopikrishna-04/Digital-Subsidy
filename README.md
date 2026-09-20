@@ -10,9 +10,27 @@ An enterprise-grade, cloud-deployed Spring Boot web application designed for tra
 
 ---
 
+## 📖 Table of Contents
+
+- [🌐 Live Production Deployment](#-live-production-deployment)
+- [🛠️ Technology Stack](#️-technology-stack)
+- [✨ Key Modules & Features](#-key-modules--features)
+  - [👤 Citizen Portal](#-citizen-portal)
+  - [👮 Multi-Level Verification Workflow](#-multi-level-verification-workflow)
+  - [⚙️ Administrator & Analytics Console](#️-administrator--analytics-console)
+- [📁 Architecture & Project Structure](#-architecture--project-structure)
+- [🏃 Running Locally](#-running-locally)
+  - [Prerequisites](#prerequisites)
+  - [Quick Setup](#quick-setup)
+- [🐳 Docker Deployment](#-docker-deployment)
+- [🔒 Security Best Practices](#-security-best-practices)
+- [📄 License](#-license)
+
+---
+
 ## 🌐 Live Production Deployment
 
-| Service | Link |
+| Service | Direct Link |
 | :--- | :--- |
 | 🚀 **Live Application** | [https://digital-subsidy-production.up.railway.app](https://digital-subsidy-production.up.railway.app) |
 | 🔐 **User / Citizen Login** | [https://digital-subsidy-production.up.railway.app/login.html](https://digital-subsidy-production.up.railway.app/login.html) |
